@@ -1,0 +1,46 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  "repository": {
+    "url": "<%= username %>/<%= name %>",
+    "type": "git"
+  },
+  "author": "<%= username %> <<%= email %>> (<%= website %>)",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "test": "npm run test:dev",
+    "test:dev": "cross-env NODE_ENV=development mocha \"test/**/*.spec.js\"",
+    "test:staging": "cross-env NODE_ENV=staging mocha \"test/**/*.spec.js\"",
+    "test:prod": "cross-env NODE_ENV=production mocha \"test/**/*.spec.js\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.15.3",
+    "eslint-config-adenvt": "^2.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-unicorn": "^7.1.0",
+    "eslint-plugin-varspacing": "^1.2.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "mocha": "^6.0.2",
+    "mocha-logger": "^1.0.6",
+    "pre-commit": "^1.2.2",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
