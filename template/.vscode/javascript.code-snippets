@@ -39,7 +39,7 @@
       "  return agent",
       "    .${2|get,post,put,delete|}('/${3:url}')",
       "    .set('Accept', 'application/json')",
-      "    ${4:.set('Authorization', `Bearer \\$\\{storage.get('token')\\}`)}",
+      "    ${4:.set('Authorization', `Bearer ${storage.get('token')\\}`)}",
       "    .expect('Content-Type', /json/)",
       "    .expect(200)",
       "    .on('error', error)",

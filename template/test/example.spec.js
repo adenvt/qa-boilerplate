@@ -7,7 +7,7 @@ const error   = require('./utils/error')
 
 const agent = request(config.baseURL)
 
-describe('Manage Dashboard', () => {
+describe('Example Service - Feature Name', () => {
   it('Ping', () => {
     return agent
       .get('/ping')
@@ -34,13 +34,14 @@ describe('Manage Dashboard', () => {
         expect(res.body).have.all.keys('code', 'message', 'data')
         expect(res.body.data).include.keys('token')
 
+        // Save token into storage, so we can use it later on another test
         storage.set('token', res.body.data.token)
       })
   })
 
   it('Profile', () => {
     return agent
-      .get('auth/profile')
+      .get('/auth/profile')
       .set('Accept', 'application/json')
       .set('Authorization', `Bearer ${storage.get('token')}`)
       .expect('Content-Type', /json/)
@@ -70,12 +71,12 @@ describe('Manage Dashboard', () => {
     return agent
       .post('/checkout')
       .set('Accept', 'application/json')
-      .set('Authorization', `Bearer $\{storage.get('token')}`)
+      .set('Authorization', `Bearer ${storage.get('token')}`)
       .field('name', 'Username')
       .field('items', JSON.stringify([
         { id: 1, name: 'Lorem' },
         { id: 2, name: 'Ipsum' },
-        { id: 4, name: 'Dolor' },
+        { id: 3, name: 'Dolor' },
       ]))
       .expect('Content-Type', /json/)
       .expect(200)
