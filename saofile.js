@@ -43,6 +43,10 @@ module.exports = {
       files: '**',
     },
     {
+      type    : 'add',
+      patterns: { '.env.example': '.env' },
+    },
+    {
       type    : 'move',
       patterns: { 'gitignore': '.gitignore', '_package.json': 'package.json' },
     },

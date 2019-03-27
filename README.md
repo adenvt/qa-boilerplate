@@ -1,6 +1,6 @@
 # QA Boilerplate
 
-> Boilerplate API testing, E2E testing, designed for Quality Assurance
+> Boilerplate API testing, designed for Quality Assurance
 
 ## Usage
 
